@@ -1,0 +1,9 @@
+{
+  "title": "Configure",
+  "type": "object",
+  "properties": {
+    "greeting": {
+      "type": "string"
+    }
+  }
+}
