@@ -1,10 +1,14 @@
+request = require 'request'
 class Elasticsearch
-  constructor: ->
-    console.warn 'implement Elasticsearch.onMessage if you want this service to actually do something.'
-
   onMessage: ({message, device}, callback) =>
-    console.warn 'implement Elasticsearch.onMessage if you want this service to actually do something.'
-    console.log JSON.stringify {message,device}, null, 2
+    {url, username, password} = device
+    options =
+      url: device.url
+      json: message
+
+    options.auth = {username, password} if username? || password?
+    request.post options
+    
     callback()
 
 module.exports = Elasticsearch

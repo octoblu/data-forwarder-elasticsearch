@@ -2,8 +2,15 @@
   "title": "Configure",
   "type": "object",
   "properties": {
-    "greeting": {
+    "url": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "password": {
       "type": "string"
     }
-  }
+  },
+  "required": ["url"]
 }
