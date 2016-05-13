@@ -3,7 +3,8 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
   device =
     name: name
     type: deviceType
-    imageUrl: imageUrl
+    logo: imageUrl
+    serviceUrl: serviceUrl
     forwarder:
       version: '1.0.0'
     meshblu:

@@ -10,8 +10,10 @@ class MessageController
     meshblu = new MeshbluHttp req.meshbluAuth
     @getDeviceConfig meshblu, (error, device) =>
       return res.sendError(error) if error?
+      {forwarderConfig} = device
+      return res.sendStatus 422 unless forwarderConfig?
       elasticsearch = new Elasticsearch
-      elasticsearch.onMessage {message, device}, (error) =>
+      elasticsearch.onMessage {message, forwarderConfig}, (error) =>
         return res.sendError error if error?
         res.sendStatus 201
 
