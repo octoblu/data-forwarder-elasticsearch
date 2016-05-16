@@ -4,6 +4,7 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
     name: name
     type: deviceType
     logo: imageUrl
+    online: true
     serviceUrl: serviceUrl
     forwarder:
       version: '1.0.0'
@@ -11,6 +12,13 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
       version: '2.0.0'
       forwarders:
         message:
+          received: [{
+            type: 'webhook'
+            url:  "#{serviceUrl}/messages"
+            method: 'POST'
+            generateAndForwardMeshbluCredentials: true
+          }]
+        broadcast:
           received: [{
             type: 'webhook'
             url:  "#{serviceUrl}/messages"
