@@ -30,7 +30,7 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
       version: '1.0.0'
       configure:
         default:
-          url: "#{serviceUrl}/schemas/v1/configure.json"
+          $ref: "#{serviceUrl}/schemas/v1/configure.json"
 
       whitelists:
         broadcast:
