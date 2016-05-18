@@ -26,12 +26,6 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
             generateAndForwardMeshbluCredentials: true
           }]
 
-    schemas:
-      version: '1.0.0'
-      configure:
-        default:
-          $ref: "#{serviceUrl}/schemas/v1/configure.json"
-
       whitelists:
         broadcast:
           as:       [{uuid: authorizedUuid}]
@@ -50,5 +44,11 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
           received: [{uuid: authorizedUuid}]
           sent:     [{uuid: authorizedUuid}]
           from:     [{uuid: authorizedUuid}]
+
+    schemas:
+      version: '1.0.0'
+      configure:
+        default:
+          $ref: "#{serviceUrl}/schemas/v1/configure.json"
 
   return _.extend device, config
