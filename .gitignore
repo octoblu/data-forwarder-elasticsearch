@@ -30,3 +30,5 @@ meshblu.json
 octoblu-dev
 production
 .bin-dev/
+*.dockerfile-dev
+.npmrc-dev

@@ -6,6 +6,7 @@ module.exports = ({authorizedUuid, deviceType, imageUrl, serviceUrl, name, confi
     logo: imageUrl
     online: true
     serviceUrl: serviceUrl
+    owner: authorizedUuid
     forwarder:
       version: '1.0.0'
     meshblu:
