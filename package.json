@@ -1,6 +1,6 @@
 {
   "name": "data-forwarder-elasticsearch",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Put some description here",
   "keywords": [],
   "homepage": "https://github.com/octoblu/elasticsearch",
@@ -16,7 +16,10 @@
   },
   "scripts": {
     "start": "node command.js",
-    "test": "istanbul cover _mocha -- -R spec --require coffee-coverage/register-istanbul"
+    "test": "istanbul cover _mocha -- -R spec --require coffee-coverage/register-istanbul",
+    "coverage": "nyc npm test",
+    "mocha:json": "env NPM_ENV=test mocha --reporter json > coverage/mocha.json",
+    "test:watch": "mocha -w -R mocha-multi --reporter-options spec=-,mocha-osx-reporter=-"
   },
   "devDependencies": {
     "@octoblu/shmock": "^0.7.2",
@@ -29,7 +32,10 @@
     "passport-strategy": "^1.0.0",
     "request": "^2.66.0",
     "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "nyc": "^8.3.0",
+    "mocha-osx-reporter": "^0.1.2",
+    "mocha-multi": "^0.9.1"
   },
   "dependencies": {
     "body-parser": "^1.14.1",
@@ -54,5 +60,16 @@
     "node": ">=0.8.0",
     "npm": ">=1.2.10"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "text-summary",
+      "lcov",
+      "json"
+    ],
+    "extension": [
+      ".coffee"
+    ]
+  }
 }
